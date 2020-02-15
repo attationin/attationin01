@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h1>Мои друзья</h1>
-	<script>
+	<script src="https://code.jquery.com/jquery-2.1.0.js">
 		var friend = [
 		"Костя",
 		"Саня",
@@ -17,6 +17,28 @@
 			document.write("Привет, ",friend[i])
 			i++
 		};
+		var left=0
+		var right=0
+		var down=0
+		var top=0
+		<h1 id="heading">Привет, мир!</h1>
+		function move (right,left,down,top) {
+			while (right>-200) {
+				$("#heading").offset ({left : right})
+				right--
+			}
+			while (down>-200) {
+				$("#heading").offset ({top : down})
+				down--
+			}
+			while (left<200) {
+				$("#heading").offset ({left : left})
+				left++
+			}
+			while (top<200) {
+				$("#heading").offset ({top : top})
+			}
+		}
 	</script>
 </body>
 </html>
