@@ -4,41 +4,59 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<h1>Мои друзья</h1>
-	<script src="https://code.jquery.com/jquery-2.1.0.js">
-		var friend = [
-		"Костя",
-		"Саня",
-		"Кирилл",
-		"Богдан"
-		];
-		i=0
-		for (i<friend.length){
-			document.write("Привет, ",friend[i])
-			i++
-		};
-		var left=0
-		var right=0
-		var down=0
-		var top=0
-		<h1 id="heading">Привет, мир!</h1>
-		function move (right,left,down,top) {
-			while (right>-200) {
-				$("#heading").offset ({left : right})
-				right--
-			}
-			while (down>-200) {
-				$("#heading").offset ({top : down})
-				down--
-			}
-			while (left<200) {
-				$("#heading").offset ({left : left})
-				left++
-			}
-			while (top<200) {
-				$("#heading").offset ({top : top})
-			}
-		}
+	<h1 id="heading" style="font-size: 100px;">😈</h1>
+	
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+        var right = 100;
+        var down =  100;
+        var speed = 1;
+
+        function moveRight() {
+            if (right > 500) {
+                setTimeout(moveDown, speed);
+                return;
+            }
+
+            $("#heading").offset({left : right});
+            right++;
+            setTimeout(moveRight, speed);
+        }
+
+        function moveDown() {
+            if (down > 500) {
+                setTimeout(moveLeft, speed);
+                return;
+            }
+            $("#heading").offset({top : down});
+            down++;
+            setTimeout(moveDown, speed);
+        }
+
+        function moveLeft() {
+            if (right <= 100) {
+                setTimeout(moveUp, speed);
+                return;
+            }
+            $("#heading").offset({left : right});
+            right--;
+            setTimeout(moveLeft, speed);
+        }
+
+        function moveUp() {
+            if (down <= 100) {
+                setTimeout(moveRight, speed);
+                return;
+            }
+            $("#heading").offset({top : down});
+            down--;
+            setTimeout(moveUp, speed);
+        }
+
+        
+        $("#heading").offset({left: right, top: down});
+        setTimeout(moveRight, speed);
+
 	</script>
 </body>
 </html>
