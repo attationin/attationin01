@@ -14,23 +14,23 @@
 
         function moveRight() {
             if (right > 500) {
-                setTimeout(moveDown, speed);
+                setTimeout(moveLeft, speed);
                 return;
             }
 
             $("#heading").offset({left : right});
             right++;
-            setTimeout(moveRight, speed);
+            setTimeout(moveDown, speed);
         }
 
         function moveDown() {
             if (down > 500) {
-                setTimeout(moveLeft, speed);
+                setTimeout(moveUp, speed);
                 return;
             }
             $("#heading").offset({top : down});
             down++;
-            setTimeout(moveDown, speed);
+            setTimeout(moveRight, speed);
         }
 
         function moveLeft() {
