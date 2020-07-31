@@ -7,8 +7,8 @@
 	<h1>Найди клад</h1>
 	
 	<img id="map" src="https://nostarch.com/images/treasuremap.png" 
-		width="400"
-		height="400"
+		width="600"
+		height="600"
 	>
 	
 	<p id="distance"></p>
@@ -16,8 +16,8 @@
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
 	<script>
-		var kladX = Math.floor(Math.random() * 400);
-		var kladY = Math.floor(Math.random() * 400);
+		var kladX = Math.floor(Math.random() * 600);
+		var kladY = Math.floor(Math.random() * 600);
 
 		var clickCounter = 0;
 		
@@ -28,8 +28,8 @@
         	var diffX = event.offsetX - kladX;
         	var diffY = event.offsetY - kladY;
         	var distance = Math.sqrt(diffX * diffX + diffY * diffY);
-  			if (distance < 8) {
-  				document.write("Победа!" + " " + clickCounter);
+  			if (distance < 12) {
+  				document.write("Победа!" + " "+ "Количество сделанных кликов: " + clickCounter);
   				return;
   			}
         	$("#distance").text(getDistanceHint(distance));
@@ -38,22 +38,22 @@
 
 
 		function getDistanceHint(distance) {
-			if (distance < 10) {
+			if (distance < 15) {
 		        return "Обожжешься!";
 		    }
-		    else if (distance < 20) {
+		    else if (distance < 30) {
 			    return "Очень горячо";
 		    }
-		    else if (distance < 40) {
+		    else if (distance < 60) {
 			    return "Горячо";
 		    }
-		    else if (distance < 80) {
+		    else if (distance < 120) {
 			    return "Тепло";
             }
-            else if (distance < 160) {
+            else if (distance < 240) {
 			    return "Холодно";
 		    }
-		    else if (distance < 320) {
+		    else if (distance < 480) {
 			    return "Очень Холодно";
 		    }
 		    else {
